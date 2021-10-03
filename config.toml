@@ -1,0 +1,54 @@
+baseurl = '/'
+disqusShortname = ''
+enableEmoji = true
+footnotereturnlinkcontents = '↩'
+googleAnalytics = ''
+hasCJKLanguage = true
+ignoreFiles = ['\.Rmd$', '\.Rmarkdown$', '_cache$', '\.knit\.md$', '\.utf8\.md$']
+languageCode = 'en-us'
+paginate = 6
+preserveTaxonomyNames = true
+theme = 'hugo-xmag'
+title = 'Nightlights for Economics'
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
+
+
+[menu]
+[[menu.main]]
+name = 'Home'
+url = '/'
+weight = 1
+[[menu.main]]
+name = 'About'
+url = '/about/'
+weight = 2
+[[menu.main]]
+name = 'Categories'
+url = '/categories/'
+weight = 3
+[[menu.main]]
+name = 'Tags'
+url = '/tags/'
+weight = 4
+[[menu.main]]
+name = 'Subscribe'
+url = '/index.xml'
+
+
+[params]
+description = 'A website built through Hugo and blogdown.'
+footer = '&copy; [Yihui Xie](https://yihui.org) 2017 - 2020 | [Github](https://github.com/yihui) | [Twitter](https://twitter.com/xieyihui)'
+github_edit = 'https://github.com/yihui/hugo-xmag/edit/master/exampleSite/content/'
+summary_length = 300
+[params.text]
+back = '&larr; Back to Home'
+edit = 'Edit this page &rarr;'
+truncated = '&hellip;'
+
+
+[permalinks]
+post = '/post/:year/:month/:day/:slug/'
