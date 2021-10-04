@@ -1,7 +1,7 @@
 ---
 title: "Nightlights for Economics"
 author: "Parth Khare"
-date: 2020-12-01T21:13:14-05:00
+date: 2021-09-30T21:13:14-05:00
 categories: ["Summary Stats"]
 tags: ["R Markdown", "plot", "regression"]
 ---
@@ -12,17 +12,23 @@ knitr::opts_chunk$set(collapse = TRUE)
 
 # Annual Product
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Trends from VIIRS annual product released recently for 2012-2020.
 
-You can embed an R code chunk like this:
+
 
 ```{r cars}
-library(ggplot2); library(data.table);
-load
+library(ggplot2); library(data.table);library(fixest)
+options(scipen=99)
 
-summary(cars)
-fit <- lm(dist ~ speed, data = cars)
-fit
+load('/Users/parthkhare/Desktop/CGD/Projects/Globalsat/data/annual_viirs_extr/AnnExtr_avg_ctyyear.RData')
+
+ggplot(vrs_ann_gdp, aes(x=log(r_sum),y=log(WDI))) + geom_point() + 
+  geom_smooth(se=F) + theme_minimal() +
+  ylim(c(-10,10)) + theme(axis.text.x=element_text(angle=90, vjust=0.5, hjust=1)) +
+  geom_vline(xintercept = 0) + geom_hline(yintercept = 0) +
+  ylab('GDP') + xlab('NTL:VIIRS Annual') + ggtitle('')
+
+
 ```
 
 # Including Plots
