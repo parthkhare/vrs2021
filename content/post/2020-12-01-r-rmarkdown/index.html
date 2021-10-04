@@ -2,18 +2,51 @@
 title: "Nightlights for Economics"
 author: "Parth Khare"
 date: 2020-12-01T21:13:14-05:00
-categories: ["R"]
+categories: ["Summary Stats"]
 tags: ["R Markdown", "plot", "regression"]
 ---
 
 <script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
 
 
-<div id="r-markdown" class="section level1">
-<h1>R Markdown</h1>
+<div id="annual-product" class="section level1">
+<h1>Annual Product</h1>
 <p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
 <p>You can embed an R code chunk like this:</p>
-<pre class="r"><code>summary(cars)
+<pre class="r"><code>library(ggplot2); library(data.table);
+load
+## function (file, envir = parent.frame(), verbose = FALSE) 
+## {
+##     if (is.character(file)) {
+##         con &lt;- gzfile(file)
+##         on.exit(close(con))
+##         magic &lt;- readChar(con, 5L, useBytes = TRUE)
+##         if (!length(magic)) 
+##             stop(&quot;empty (zero-byte) input file&quot;)
+##         if (!grepl(&quot;RD[ABX][2-9]\n&quot;, magic)) {
+##             if (grepl(&quot;RD[ABX][2-9]\r&quot;, magic)) 
+##                 stop(&quot;input has been corrupted, with LF replaced by CR&quot;)
+##             warning(sprintf(&quot;file %s has magic number &#39;%s&#39;\n&quot;, 
+##                 sQuote(basename(file)), gsub(&quot;[\n\r]*&quot;, &quot;&quot;, magic)), 
+##                 &quot;  &quot;, &quot;Use of save versions prior to 2 is deprecated&quot;, 
+##                 domain = NA, call. = FALSE)
+##             return(.Internal(load(file, envir)))
+##         }
+##     }
+##     else if (inherits(file, &quot;connection&quot;)) {
+##         con &lt;- if (inherits(file, &quot;gzfile&quot;) || inherits(file, 
+##             &quot;gzcon&quot;)) 
+##             file
+##         else gzcon(file)
+##     }
+##     else stop(&quot;bad &#39;file&#39; argument&quot;)
+##     if (verbose) 
+##         cat(&quot;Loading objects:\n&quot;)
+##     .Internal(loadFromConn2(con, envir, verbose))
+## }
+## &lt;bytecode: 0x7fe3f2aac3b0&gt;
+## &lt;environment: namespace:base&gt;
+summary(cars)
 ##      speed           dist       
 ##  Min.   : 4.0   Min.   :  2.00  
 ##  1st Qu.:12.0   1st Qu.: 26.00  

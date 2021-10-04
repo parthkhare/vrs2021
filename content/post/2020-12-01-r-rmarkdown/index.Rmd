@@ -2,7 +2,7 @@
 title: "Nightlights for Economics"
 author: "Parth Khare"
 date: 2020-12-01T21:13:14-05:00
-categories: ["R"]
+categories: ["Summary Stats"]
 tags: ["R Markdown", "plot", "regression"]
 ---
 
@@ -10,13 +10,16 @@ tags: ["R Markdown", "plot", "regression"]
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-# R Markdown
+# Annual Product
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
 You can embed an R code chunk like this:
 
 ```{r cars}
+library(ggplot2); library(data.table);
+load
+
 summary(cars)
 fit <- lm(dist ~ speed, data = cars)
 fit
