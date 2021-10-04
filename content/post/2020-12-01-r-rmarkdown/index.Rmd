@@ -16,7 +16,7 @@ Trends from VIIRS annual product released recently for 2012-2020.
 
 
 
-```{r cars}
+```{r cars, echo=F, warning=F}
 library(ggplot2); library(data.table);library(fixest)
 options(scipen=99)
 
