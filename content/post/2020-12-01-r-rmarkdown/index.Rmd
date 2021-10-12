@@ -16,12 +16,12 @@ Trends from VIIRS annual product released recently for 2012-2020.
 
 
 
-```{r cars, echo=F, warning=F}
+```{r cars, echo=F, warning=F, message=F}
 library(ggplot2); library(data.table);library(fixest)
 options(scipen=99)
 
 load('/Users/parthkhare/Desktop/CGD/Projects/Globalsat/data/annual_viirs_extr/AnnExtr_avg_ctyyear.RData')
-
+fixest_startup_msg(FALSE)
 ggplot(vrs_ann_gdp, aes(x=log(r_sum),y=log(WDI))) + geom_point() + 
   geom_smooth(se=F) + theme_minimal() +
   ylim(c(-10,10)) + theme(axis.text.x=element_text(angle=90, vjust=0.5, hjust=1)) +
