@@ -17,14 +17,25 @@ knitr::opts_chunk$set(collapse = TRUE)
 ```
 
 ## Summary of work
-
-## - Trends
-## - HWS Regression
-## - Covid Analysis
-## - Nightlights Products 
+So far, VIIRS does not seem to capture economic activity well, based HWS, Goldberg and Covid trends.
 
 
-```{r cars, echo=F, warning=F}
+
+
+
+### - Trends
+### - HWS Regression
+### - Covid Analysis
+### - Nightlights Products 
+### - About Nightlights
+
+```{r, echo=F, warning=F, message=F}
+
+
+```
+
+
+```{r, echo=F, warning=F, message=F}
 
 
 ```

@@ -1,5 +1,5 @@
 ---
-title: "Nightlights for Economics"
+title: "Global Trends"
 author: "Parth Khare"
 date: 2021-09-30T21:13:14-05:00
 categories: ["Summary Stats"]
@@ -8,18 +8,48 @@ tags: ["R Markdown", "plot", "regression"]
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(collapse = TRUE)
-```
-
-# Annual Product
-
-Trends from VIIRS annual product released recently for 2012-2020.
-
-
-
-```{r cars, echo=F, warning=F, message=F}
 library(ggplot2); library(data.table);library(fixest)
 options(scipen=99)
+```
 
+# Distribution and trends
+Trends from VIIRS annual product released recently for 2012-2020.
+
+```{r, echo=F, warning=F, message=F}
+load('/Users/parthkhare/Desktop/CGD/Projects/Globalsat/data/HWS & country level/country_year regdata/Ctyr_Jul1_BaseregHML.RData')
+
+
+# Aggregate data to world
+br <- data.table(br)
+brglb <- br[,.(sum_pix = sum(sum_pix, na.rm=T), pol_area = sum(pol_area, na.rm=T),
+                       sum_pix_clb = sum(sum_pix_clb, na.rm=T), 
+                       pos_sumpx = sum(pos_sumpx, na.rm=T),
+                       imf_rgdp_lcu = sum(imf_rgdp_lcu, na.rm=T), 
+                       pwt_rgdpna = sum(pwt_rgdpna, na.rm=T),
+                       WDI = sum(WDI, na.rm=T), 
+                       ox_anrgdp_lcu = sum(ox_anrgdp_lcu, na.rm=T)),
+                    by = .(incat,year)]
+
+# Global trends: GDP
+ggplot(brglb, aes(y=log(WDI), x=year, color=incat, group=incat)) + 
+  geom_point(size=0.5) + geom_smooth(size=0.5,se=F) + 
+  ggtitle('Annual GDP by country groups') + ylab('log WDI') + xlab('years') 
+
+# Global trends: GDP
+ggplot(brglb, aes(y=log(sum_pix), x=year, color=incat, group=incat)) + 
+  geom_point(size=0.5) + geom_smooth(size=0.5,se=F) + 
+  ggtitle('Annual NTL by country groups') + ylab('log VIIRS') + xlab('years') 
+```
+
+
+```{r br, echo=F, warning=F, message=F}
+# Nightlights GDP: HMC
+ggplot(br, aes(y=log(WDI), x=log(sum_pix/pol_area), color=incat, group=incat)) + 
+  geom_point(size=0.5) + geom_smooth(size=0.5,se=F) + 
+  ggtitle('NTL-WDI') + ylab('log WDI') + xlab('Sum pixels/area') 
+```
+
+```{r, echo=F, warning=F, message=F}
 load('/Users/parthkhare/Desktop/CGD/Projects/Globalsat/data/annual_viirs_extr/AnnExtr_avg_ctyyear.RData')
 fixest_startup_msg(FALSE)
 ggplot(vrs_ann_gdp, aes(x=log(r_sum),y=log(WDI))) + geom_point() + 
