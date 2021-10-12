@@ -40,8 +40,8 @@ url = '/index.xml'
 
 
 [params]
-description = 'A website built through Hugo and blogdown.'
-footer = '&copy; [Yihui Xie](https://yihui.org) 2017 - 2020 | [Github](https://github.com/yihui) | [Twitter](https://twitter.com/xieyihui)'
+description = 'Nighlights for eocnomic analysis'
+footer = '&copy; [Parth Khare](https://www.cgdev.org/expert/parth-khare)-2021 | [Twitter](https://github.com/yihui) | [Data](https://parthkhare.github.io/)| [Twitter](https://twitter.com/parthakhare)'
 github_edit = 'https://github.com/yihui/hugo-xmag/edit/master/exampleSite/content/'
 summary_length = 300
 [params.text]
